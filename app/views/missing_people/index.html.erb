@@ -1,0 +1,40 @@
+<%- model_class = MissingPerson -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:information) %></th>
+      <th><%= model_class.human_attribute_name(:event_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @missing_people.each do |missing_person| %>
+      <tr>
+        <td><%= link_to missing_person.id, missing_person_path(missing_person) %></td>
+        <td><%= missing_person.name %></td>
+        <td><%= missing_person.information %></td>
+        <td><%= missing_person.event_id %></td>
+        <td><%=l missing_person.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_missing_person_path(missing_person), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      missing_person_path(missing_person),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_missing_person_path,
+            :class => 'btn btn-primary' %>

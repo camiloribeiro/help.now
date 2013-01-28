@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyText
+  information: MyText
+  event: 
+
+two:
+  name: MyText
+  information: MyText
+  event: 
