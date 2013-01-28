@@ -1,8 +1,8 @@
-<%= form_for @missing_person, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for [@event, @missing_person], :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :name, :class => 'text_area' %>
+      <%= f.text_field :name, :class => 'text_area' %>
     </div>
   </div>
   <div class="control-group">
@@ -11,16 +11,10 @@
       <%= f.text_area :information, :class => 'text_area' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :event_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :event_id, :class => 'number_field' %>
-    </div>
-  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                missing_people_path, :class => 'btn' %>
+                event_path(@event), :class => 'btn' %>
   </div>
 <% end %>

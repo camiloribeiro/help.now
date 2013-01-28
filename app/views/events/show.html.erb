@@ -11,6 +11,15 @@
 </dl>
 
 <div class="row-fluid marketing">
+  <%= link_to "Add a missing person", new_event_missing_person_path(@event) %>
+  <% @event.missing_people.each do |missing_person| %>
+        <div class="span6">
+          <h4><%= missing_person.name %></h4>
+          <%= simple_format missing_person.information %>
+        </div>
+  <% end %>
+</div>
+<div class="row-fluid marketing">
   <%= link_to "Add a help center", new_event_help_center_path(@event) %>
   <% @event.help_centers.each do |help_center| %>
         <div class="span6">
