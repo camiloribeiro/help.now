@@ -1,0 +1,128 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "events"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "events" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2013-01-29 00:58:48', '2013-01-29 00:58:48', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "events" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2013-01-29 00:58:48', '2013-01-29 00:58:48', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "help_centers"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "help_centers" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2013-01-29 00:58:48', '2013-01-29 00:58:48', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "help_centers" ("name", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2013-01-29 00:58:48', '2013-01-29 00:58:48', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "missing_people"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "missing_people" ("name", "information", "created_at", "updated_at", "id") VALUES ('MyText', 'MyText', '2013-01-29 00:58:48', '2013-01-29 00:58:48', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "missing_people" ("name", "information", "created_at", "updated_at", "id") VALUES ('MyText', 'MyText', '2013-01-29 00:58:48', '2013-01-29 00:58:48', 298486374)
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mEvent Load (1.5ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" 
+Processing by EventsController#create as HTML
+  Parameters: {"event"=>{}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (36.7ms)[0m  INSERT INTO "events" ("created_at", "description", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Tue, 29 Jan 2013 00:58:48 UTC +00:00], ["description", nil], ["name", nil], ["updated_at", Tue, 29 Jan 2013 00:58:48 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/events/980190963
+Completed 302 Found in 42ms (ActiveRecord: 36.8ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" 
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events" 
+Processing by EventsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "events" WHERE "events"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/events
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events" [0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by EventsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mEvent Load (0.0ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", "980190962"]]
+  Rendered events/_form.html.erb (3.3ms)
+Completed 200 OK in 100ms (Views: 99.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" [0m
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 980190962]]
+Processing by EventsController#new as HTML
+  Rendered events/_form.html.erb (1.9ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36mMissingPerson Load (0.1ms)[0m  [1mSELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."event_id" = 980190962[0m
+  [1m[35mHelpCenter Load (0.1ms)[0m  SELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."event_id" = 980190962
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by EventsController#update as HTML
+  Parameters: {"event"=>{}, "id"=>"980190962"}
+  [1m[35mEvent Load (0.1ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", "980190962"]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/events/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mHelpCenter Load (0.1ms)[0m  [1mSELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "help_centers" 
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mHelpCenter Load (0.1ms)[0m  [1mSELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "help_centers" 
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mHelpCenter Load (0.1ms)[0m  [1mSELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mHelpCenter Load (0.1ms)[0m  SELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mHelpCenter Load (0.1ms)[0m  [1mSELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mHelpCenter Load (0.1ms)[0m  SELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mHelpCenter Load (0.1ms)[0m  [1mSELECT "help_centers".* FROM "help_centers" WHERE "help_centers"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMissingPerson Load (0.1ms)[0m  SELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "missing_people" [0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMissingPerson Load (0.1ms)[0m  SELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "missing_people" [0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMissingPerson Load (0.1ms)[0m  SELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMissingPerson Load (0.1ms)[0m  [1mSELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMissingPerson Load (0.1ms)[0m  SELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mMissingPerson Load (0.1ms)[0m  [1mSELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mMissingPerson Load (0.1ms)[0m  SELECT "missing_people".* FROM "missing_people" WHERE "missing_people"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+Processing by WelcomeController#index as HTML
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT "events".* FROM "events" [0m
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
