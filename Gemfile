@@ -20,7 +20,6 @@ end
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
 
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -35,6 +34,10 @@ gem "twitter-bootstrap-rails"
 
 # To use debugger
 # gem 'debugger'
+#
+group :production do
+    gem "pg"
+end
 
 group :development do
     gem "better_errors"
@@ -43,5 +46,3 @@ end
 group :development, :test do
   gem 'sqlite3'
 end
-
-
