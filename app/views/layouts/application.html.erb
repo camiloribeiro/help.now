@@ -33,6 +33,21 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <style type="text/css">
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+    </style>
   </head>
   <body>
 
@@ -47,9 +62,9 @@
           <a class="brand" href="/"><i class="icon-white icon-heart"></i>Ajude Agora</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Home Page", "/path1"  %></li>
               <li><%= link_to "Sobre o Ajude Agora", "/path2"  %></li>
               <li><%= link_to "Contato", "/path3"  %></li>
+              <li><%= link_to "Responsabilidade e Termos de Uso", "/path3"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -57,12 +72,13 @@
     </div>
 
     <div class="container">
-        <div class="row">
-          <div class="span10">
-            <%= bootstrap_flash %>
-            <%= yield %>
-          </div>
-        </div><!--/row-->
+      <div class="row">
+        <div class="span10">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+
 
       <footer>
         <p>&copy; Ajude Agora 2013</p>

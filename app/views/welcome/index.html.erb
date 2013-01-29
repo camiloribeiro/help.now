@@ -1,11 +1,26 @@
-<h1>Welcome#index</h1>
-<p>Start now</p>
-<%= link_to "Create a event", new_event_path() %>
 
 
-<h2><%= h "Latest events" %></h2>
+<h2><%= h "Incidêntes Ativos" %></h2><%= link_to "Relatar Incidênte", new_event_path(), :class => 'btn btn-small btn-success' %>
 <ul>
-  <% @events.each do |event| %>
-    <li><%= link_to event.name, event_path(event) %></li>
-  <% end %>
+    <div class="container">
+        <div class="row">
+          <div class="span10">
+            <%= bootstrap_flash %>
+          </div>
+        </div><!--/row-->
+
+    <div class="container-narrow">
+
+            <% @events.shuffle.each do |event| %>
+      <hr>
+
+      <div class="jumbotron">
+        <h1><%= event.name %></h1>
+        <p class="lead"> <%= event.description %></p>
+        <%= link_to "Ajude Agora", event_path(event), :class => 'btn btn-large btn-success' %>
+      </div>
+
+      <hr>
+      <% end %>
+
 </ul>
