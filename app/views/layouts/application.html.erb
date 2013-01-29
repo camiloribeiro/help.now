@@ -52,6 +52,18 @@
         width: 40px;
         height: 40px;
       }
+      .carousel-inner {
+        width: 200px;
+        height: 200px;
+      }
+      .item {
+        width: 190px;
+        height: 190px;
+      }
+      .span2 {
+        width: 90px;
+        height: 90px;
+      }
     </style>
   </head>
   <body>
@@ -95,6 +107,31 @@
       ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
       <%= javascript_include_tag "application" %>
+      <script>
+        jQuery(document).ready(function($) {
+
+            $('#myCarousel').carousel({
+              interval: 3500
+            });
+
+            $('#carousel-text').html($('#slide-content-1').html());
+
+            //Handles the carousel thumbnails
+            $('[id^=carousel-selector-]').click( function(){
+              var id_selector = $(this).attr("id");
+              var id = id_selector.substr(id_selector.length -1);
+              var id = parseInt(id);
+              $('#myCarousel').carousel(id-1);
+              });
+
+
+            // When the carousel slides, auto update the text
+            $('#myCarousel').on('slid', function (e) {
+              var id = $('.item.active').data('slide-number');
+              $('#carousel-text').html($('#slide-content-'+id).html());
+              });
+});
+</script>
 
     </body>
   </html>
